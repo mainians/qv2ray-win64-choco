@@ -44,7 +44,8 @@ jobs:
             --connect-timeout 10 | grep  -m1 "name" | cut -d\" -f4)
             echo $latest_version
             wget https://github.com/$repos/releases/download/$latest_version/v2ray-windows-64.zip
-            unzip v2ray-windows-64.zip -d /deployment/ && rm v2ray-windows-64.zip 
+            mkdir -p ./deployment/vcore
+            unzip v2ray-windows-64.zip -d ./deployment/vcore && rm v2ray-windows-64.zip 
 
             repos="Qv2ray/QvPlugin-Trojan"
             latest_version=$(curl \
@@ -53,9 +54,9 @@ jobs:
             -s "https://api.github.com/repos/$repos/tags" \
             --connect-timeout 10 | grep  -m1 "name" | cut -d\" -f4)
             echo $latest_version
-            wget -O /deployment/plugins/trojan.dll https://github.com/$repos/releases/download/$latest_version/QvPlugin-Trojan.$latest_version.Windows-x64.dll
+            wget -O ./deployment/plugins/trojan.dll https://github.com/$repos/releases/download/$latest_version/QvPlugin-Trojan.$latest_version.Windows-x64.dll
 
-            zip –q –r -m qv2ray-${Qlatest_version}.zip /deployment
+            zip –q –r -m qv2ray-${Qlatest_version}.zip ./deployment
 
             git add .
             git config user.name "Scaleya"
