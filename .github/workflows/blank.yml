@@ -27,14 +27,14 @@ jobs:
           echo $Qlatest_version
           
           DIST_TAGS_URL="https://api.github.com/repos/${{ github.repository }}/tags"
-          DIST_TAG_FOUND=`curl -H "Accept: application/vnd.github.v3+json" -H "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.61 Safari/537.36" -s ${DIST_TAGS_URL} --connect-timeout 5 | grep "\"name\"\: \"${latest_version}\""` || true
+          DIST_TAG_FOUND=`curl -H "Accept: application/vnd.github.v3+json" -H "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.61 Safari/537.36" -s ${DIST_TAGS_URL} --connect-timeout 5 | grep "\"name\"\: \"${Qlatest_version}\""` || true
 
           
           if [ -z ${DIST_TAG_FOUND} ]; then
             rm -rf *
 
-            wget https://github.com/$repos/releases/download/$latest_version/Qv2ray.$latest_version.Windows-x64.7z
-            7z xe Qv2ray.$latest_version.Windows-x64.7z && rm Qv2ray.$latest_version.Windows-x64.7z
+            wget https://github.com/$repos/releases/download/$latest_version/Qv2ray.$Qlatest_version.Windows-x64.7z
+            7z xe Qv2ray.$Qlatest_version.Windows-x64.7z && rm Qv2ray.$Qlatest_version.Windows-x64.7z
 
             repos="v2fly/v2ray-core"
             latest_version=$(curl \
