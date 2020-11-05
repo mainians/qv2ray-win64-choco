@@ -64,5 +64,5 @@ jobs:
             git commit -m "Version ${Qlatest_version}"
             git tag -a "${Qlatest_version}" -m "Version ${Qlatest_version}"
             git remote add release "https://${{ github.actor }}:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}"
-            git push -u --follow-tags release master
+            git push -u --follow-tags release main
           fi
