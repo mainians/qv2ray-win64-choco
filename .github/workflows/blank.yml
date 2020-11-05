@@ -17,7 +17,7 @@ jobs:
 
       - name: Check and release
         run: |
-          apt-get install -y p7zip-full
+          sudo apt-get install -y p7zip-full
           repos="Qv2ray/Qv2ray"
           Qlatest_version=$(curl \
           -H "Accept: application/vnd.github.v3+json" \
