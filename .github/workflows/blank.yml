@@ -33,7 +33,7 @@ jobs:
           if [ -z ${DIST_TAG_FOUND} ]; then
             rm -rf *
 
-            wget https://github.com/$repos/releases/download/$latest_version/Qv2ray.$Qlatest_version.Windows-x64.7z
+            wget https://github.com/$repos/releases/download/$Qlatest_version/Qv2ray.$Qlatest_version.Windows-x64.7z
             7z xe Qv2ray.$Qlatest_version.Windows-x64.7z && rm Qv2ray.$Qlatest_version.Windows-x64.7z
 
             repos="v2fly/v2ray-core"
