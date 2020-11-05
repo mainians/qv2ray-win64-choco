@@ -56,7 +56,7 @@ jobs:
             echo $latest_version
             wget -O ./deployment/plugins/trojan.dll https://github.com/$repos/releases/download/$latest_version/QvPlugin-Trojan.$latest_version.Windows-x64.dll
 
-            zip –rm qv2ray.zip ./deployment
+            zip –rm qv2ray-${Qlatest_version}.zip deployment
 
             git add .
             git config user.name "Scaleya"
