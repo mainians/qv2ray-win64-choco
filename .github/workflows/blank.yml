@@ -34,7 +34,7 @@ jobs:
             rm -rf *
 
             wget https://github.com/$repos/releases/download/$Qlatest_version/Qv2ray.$Qlatest_version.Windows-x64.7z
-            7z e Qv2ray.$Qlatest_version.Windows-x64.7z && rm Qv2ray.$Qlatest_version.Windows-x64.7z
+            7z x Qv2ray.$Qlatest_version.Windows-x64.7z && rm Qv2ray.$Qlatest_version.Windows-x64.7z
 
             repos="v2fly/v2ray-core"
             latest_version=$(curl \
