@@ -102,6 +102,7 @@ jobs:
             wget -O ./deployment/plugins/command.dll https://github.com/$repos/releases/download/$latest_version/QvPlugin-Command.$latest_version.Windows-x64.dll
 
             7z a -t7z ./qv2ray-${Qlatest_version}.7z ./deployment
+            sha256sum ./qv2ray-${Qlatest_version}.7z > sha256sum.txt
 
             git add .
             git config user.name "Scaleya"
