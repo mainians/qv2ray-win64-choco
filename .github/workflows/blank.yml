@@ -101,8 +101,8 @@ jobs:
             echo $latest_version
             wget -O ./deployment/plugins/command.dll https://github.com/$repos/releases/download/$latest_version/QvPlugin-Command.$latest_version.Windows-x64.dll
             
-            mv ./deployment ./qv2ray.full
-            7z a -t7z ./qv2ray-${Qlatest_version}.7z ./qv2ray.full
+            mv ./deployment ./qv2ray.portable
+            7z a -t7z ./qv2ray-${Qlatest_version}.7z ./qv2ray.portable
             sha256sum ./qv2ray-${Qlatest_version}.7z > sha256sum.txt
 
             git add .
