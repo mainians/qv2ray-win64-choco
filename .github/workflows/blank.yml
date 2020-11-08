@@ -104,7 +104,7 @@ jobs:
             mv ./deployment ./qv2ray.portable
             7z a -t7z ./qv2ray-${Qlatest_version}.7z ./qv2ray.portable
             sha256sum ./qv2ray-${Qlatest_version}.7z > sha256sum.txt
-
+            
             git add .
             git config user.name "Scaleya"
             git config user.email "61817665+Scaleya@users.noreply.github.com"
@@ -113,3 +113,13 @@ jobs:
             git remote add release "https://${{ github.actor }}:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}"
             git push -u --follow-tags release main
           fi
+     
+      - name: upload asset
+        id: upload-release-asset
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ env.uploadurl }}
+          asset_path: ./qv2ray-${Qlatest_version}.7z
+          asset_name: qv2ray-${Qlatest_version}.zip
