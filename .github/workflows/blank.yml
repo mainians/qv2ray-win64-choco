@@ -120,6 +120,5 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          upload_url: ${{ env.uploadurl }}
           asset_path: ./qv2ray-${Qlatest_version}.7z
           asset_name: qv2ray-${Qlatest_version}.zip
