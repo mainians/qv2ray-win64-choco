@@ -101,6 +101,28 @@ jobs:
             echo $latest_version
             wget -O ./deployment/plugins/command.dll https://github.com/$repos/releases/download/$latest_version/QvPlugin-Command.$latest_version.Windows-x64.dll
             
+            repos="p4gefau1t/trojan-go"
+            latest_version=$(curl \
+            -H "Accept: application/vnd.github.v3+json" \
+            -H "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.61 Safari/537.36" \
+            -s "https://api.github.com/repos/$repos/tags" \
+            --connect-timeout 10 | grep  -m1 "name" | cut -d\" -f4)
+            echo $latest_version
+            wget https://github.com/$repos/releases/download/$latest_version/trojan-go-windows-amd64.zip
+            unzip trojan-go-windows-amd64.zip -d ./deployment/config/vcore && trojan-go-windows-amd64.zip 
+
+
+
+            repos="klzgrad/naiveproxy"
+            latest_version=$(curl \
+            -H "Accept: application/vnd.github.v3+json" \
+            -H "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.61 Safari/537.36" \
+            -s "https://api.github.com/repos/$repos/tags" \
+            --connect-timeout 10 | grep  -m1 "name" | cut -d\" -f4)
+            echo $latest_version
+            wget https://github.com/$repos/releases/download/$latest_version/naiveproxy-$latest_version-win-x64.zip
+            unzip naiveproxy-$latest_version-win-x64.zip -d ./deployment/config/vcore && naiveproxy-$latest_version-win-x64.zip
+            
             mv ./deployment ./qv2ray.portable
             7z a -t7z ./qv2ray-${Qlatest_version}.7z ./qv2ray.portable
             cp ./qv2ray-${Qlatest_version}.7z ./qv2ray.7z
