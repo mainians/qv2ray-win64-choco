@@ -109,7 +109,7 @@ jobs:
             --connect-timeout 10 | grep  -m1 "name" | cut -d\" -f4)
             echo $latest_version
             wget https://github.com/$repos/releases/download/$latest_version/trojan-go-windows-amd64.zip
-            unzip trojan-go-windows-amd64.zip -d ./deployment/config/vcore && trojan-go-windows-amd64.zip 
+            unzip trojan-go-windows-amd64.zip -d ./deployment/config/vcore && rm trojan-go-windows-amd64.zip 
 
 
 
@@ -121,7 +121,7 @@ jobs:
             --connect-timeout 10 | grep  -m1 "name" | cut -d\" -f4)
             echo $latest_version
             wget https://github.com/$repos/releases/download/$latest_version/naiveproxy-$latest_version-win-x64.zip
-            unzip naiveproxy-$latest_version-win-x64.zip -d ./deployment/config/vcore && naiveproxy-$latest_version-win-x64.zip
+            unzip naiveproxy-$latest_version-win-x64.zip -d ./deployment/config/vcore && rm naiveproxy-$latest_version-win-x64.zip
             
             mv ./deployment ./qv2ray.portable
             7z a -t7z ./qv2ray-${Qlatest_version}.7z ./qv2ray.portable
