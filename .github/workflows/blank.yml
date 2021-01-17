@@ -140,6 +140,8 @@ jobs:
             rm -rf ./qv2ray.portable/config/vcore/example
             cp ./qv2ray.portable/config/vcore/naiveproxy-$latest_version-win-x64/naive.exe ./qv2ray.portable/config/vcore
             rm -rf ./qv2ray.portable/config/vcore/naiveproxy-$latest_version-win-x64
+            rm ./qv2ray.portable/config/vcore/*.json
+            rm *.zip
             7z a -t7z ./qv2ray-${Qlatest_version}.7z ./qv2ray.portable
             cp ./qv2ray-${Qlatest_version}.7z ./qv2ray.7z
             sha256sum ./qv2ray-${Qlatest_version}.7z > sha256sum-${Qlatest_version}.txt
