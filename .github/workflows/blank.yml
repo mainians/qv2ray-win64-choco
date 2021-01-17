@@ -46,6 +46,19 @@ jobs:
             wget https://github.com/$repos/releases/download/$latest_version/v2ray-windows-64.zip
             mkdir -p ./deployment/config/vcore
             unzip v2ray-windows-64.zip -d ./deployment/config/vcore && rm v2ray-windows-64.zip 
+            
+            repos="XTLS/Xray-core"
+            latest_version=$(curl \
+            -H "Accept: application/vnd.github.v3+json" \
+            -H "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.61 Safari/537.36" \
+            -s "https://api.github.com/repos/$repos/tags" \
+            --connect-timeout 10 | grep  -m1 "name" | cut -d\" -f4)
+            echo $latest_version
+            wget https://github.com/$repos/releases/download/$latest_version/Xray-windows-64.zip
+            mkdir tmp1
+            unzip Xray-windows-64.zip -d ./tmp1
+            cp ./tmp1/xray.exe ./deployment/config/vcore
+            rm -rf ./tmp1 Xray-windows-64.zip
 
             repos="Qv2ray/QvPlugin-Trojan"
             latest_version=$(curl \
