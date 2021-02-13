@@ -1,1 +1,0 @@
-b40b88ecfe11f2f2ddda660843268157f4f576c2d5b1a6ed9beb991d0dc49e92  ./qv2ray-v2.7.0-pre1.7z
