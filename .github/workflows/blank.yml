@@ -149,7 +149,7 @@ jobs:
             sha256sum ./qv2ray.7z > sha256sum.txt
             
             git add .
-            git config user.name "Scaleya"
+            git config user.name "mainians"
             git config user.email "61817665+Scaleya@users.noreply.github.com"
             git commit -m "Version ${Qlatest_version}"
             git tag -a "${Qlatest_version}" -m "Version ${Qlatest_version}"
